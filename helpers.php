@@ -73,10 +73,11 @@ function inspect($value)
  * 
  */
 
-function inspecAndDie($value)
+function inspectAndDie($value)
 {
   echo "<pre>";
-  di(var_dump($value));
-  echo "<pre>";
+  var_dump($value);
+  echo "</pre>";
 
+  die(1);
 }
