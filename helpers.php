@@ -82,3 +82,17 @@ function inspectAndDie($value)
 
   die(1);
 }
+
+/**
+ * Format salary
+ * 
+ * @param string $salary
+ * @return string Formatted Salary
+ */
+
+function formatSalary($salary)
+{
+  return number_format(floatval($salary)) . " SEK";
+
+}
+;
