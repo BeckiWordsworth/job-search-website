@@ -5,7 +5,6 @@ $db = new Database($config);
 
 $id = $_GET["id"] ?? "";
 
-inspect($id);
 $params = [
   "id" => $id
 ];
