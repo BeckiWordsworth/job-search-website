@@ -2,6 +2,8 @@
 require __DIR__ . "/../vendor/autoload.php";
 require "../helpers.php";
 
+use Framework\Router;
+
 //Custom Autoloader - require files with the same name as the class 
 // spl_autoload_register(function ($class) {
 //   $path = basePath("Framework/" . $class . ".php");

@@ -6,8 +6,8 @@
     "email": "support@beckiwordsworth.com"
   }],
   "autoload": {
-    "pst-4": {
-      "Framework\\": "Framwwork/",
+    "psr-4": {
+      "Framework\\": "Framework/",
       "App\\": "App/"
     }
   }
