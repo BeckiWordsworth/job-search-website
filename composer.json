@@ -1,0 +1,14 @@
+{
+  "name": "beckiwordsworth/job-search-website-php",
+  "description": "Job search application",
+  "authors": [{
+    "name": "Becki Wordsworth",
+    "email": "support@beckiwordsworth.com"
+  }],
+  "autoload": {
+    "pst-4": {
+      "Framework\\": "Framwwork/",
+      "App\\": "App/"
+    }
+  }
+}

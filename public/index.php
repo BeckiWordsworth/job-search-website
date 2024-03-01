@@ -1,13 +1,14 @@
 <?php
+require __DIR__ . "/../vendor/autoload.php";
 require "../helpers.php";
 
 //Custom Autoloader - require files with the same name as the class 
-spl_autoload_register(function ($class) {
-  $path = basePath("Framework/" . $class . ".php");
-  if (file_exists($path)) {
-    require $path;
-  };
-});
+// spl_autoload_register(function ($class) {
+//   $path = basePath("Framework/" . $class . ".php");
+//   if (file_exists($path)) {
+//     require $path;
+//   };
+// });
 
 // Instantiating the router
 $router = new Router();
