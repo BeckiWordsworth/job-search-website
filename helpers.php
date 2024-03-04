@@ -95,4 +95,19 @@ function formatSalary($salary)
   return number_format(floatval($salary)) . " SEK";
 
 }
+
+/**
+ * Sanitize Data
+ * 
+ * @param string $dirty
+ * @return string
+ */
+
+function sanitize($dirty)
+{
+  return filter_var(trim($dirty), FILTER_SANITIZE_SPECIAL_CHARS);
+}
+
+
+
 ;
