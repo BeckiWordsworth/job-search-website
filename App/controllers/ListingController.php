@@ -85,7 +85,7 @@ class ListingController
 
     $newListingData = array_map("sanitize", $newListingData);
 
-    $requiredFields = ["title", "description", "email", "city"];
+    $requiredFields = ["title", "description", "email", "city", "salary"];
 
     foreach ($requiredFields as $field) {
       if (empty($newListingData[$field]) || !Validation::string($newListingData[$field])) {
@@ -99,7 +99,32 @@ class ListingController
       loadView("listings/create", ["errors" => $errors, "listing" => $newListingData]);
     } else {
       // Submit data
-      echo "success";
+
+      $fields = [];
+
+      foreach ($newListingData as $field => $value) {
+        $fields[] = $field;
+      }
+
+      $fields = implode(", ", $fields);
+
+      $values = [];
+
+      foreach ($newListingData as $field => $value) {
+        // Convert empty string to null
+        if ($value === "") {
+          $newListingData[$field] = null;
+        }
+        $values[] = ":" . $field;
+      }
+
+      $values = implode(", ", $values);
+
+      $query = "INSERT INTO listings ({$fields}) VALUES ({$values})";
+
+      $this->db->query($query, $newListingData);
+
+      redirect("/listings");
     }
 
   }
