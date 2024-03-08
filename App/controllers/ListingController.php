@@ -245,12 +245,10 @@ class ListingController
       }
 
       $updateFields = implode(", ", $updateFields);
-
       $updateQuery = "UPDATE listings SET $updateFields WHERE id = :id;";
 
       $updateValues["id"] = $id;
-
-      $this->db->query($updateQuery, $updateQuery);
+      $this->db->query($updateQuery, $updateValues);
 
       $_SESSION["success_message"] = "Listing Updated";
 
