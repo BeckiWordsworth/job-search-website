@@ -11,6 +11,6 @@ $router->put("/listings/{id}", "ListingController@update");
 $router->delete("/listings/{id}", "ListingController@destroy");
 
 
-
+//Auth routes
 $router->get("/auth/register", "UserController@create");
 $router->get("/auth/login", "UserController@login");
