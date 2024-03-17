@@ -79,10 +79,42 @@ class UserController
 
     if (!empty($errors)) {
       loadView('users/create', ["errors" => $errors, "user" => ["name" => $name, "email" => $email, "city" => $city, "county" => $county]]);
-    } else {
-      inspectAndDie("STORE");
+      exit;
     }
-    exit;
+
+    // Check if email exists
+
+    $params = [
+      "email" => $email
+    ];
+
+    $user = $this->db->query("SELECT * FROM users WHERE email = :email", $params)->fetch();
+
+    if ($user) {
+      $errors["email"] = "That email already exists";
+      loadView(
+        "users/create",
+        [
+          "errors" => $errors
+        ]
+      );
+      exit;
+    }
+    ;
+
+    // Create user account
+
+    $params = [
+      "name" => $name,
+      "email" => $email,
+      "city" => $city,
+      "county" => $county,
+      "password" => password_hash($password, PASSWORD_DEFAULT),
+    ];
+
+    $this->db->query("INSERT INTO users (name, email, city, county, password) VALUES (:name, :email, :city, :county, :password)", $params);
+
+    redirect("/");
 
   }
 }

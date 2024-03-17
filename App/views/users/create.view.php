@@ -11,18 +11,19 @@
     <form method="POST" action="/auth/register">
       <div class="mb-4">
         <input type="text" name="name" placeholder="Full Name"
-          class="w-full px-4 py-2 border rounded focus:outline-none" />
+          class="w-full px-4 py-2 border rounded focus:outline-none" value="<?= $user["name"] ?? "" ?>" />
       </div>
       <div class="mb-4">
         <input type="email" name="email" placeholder="Email Address"
-          class="w-full px-4 py-2 border rounded focus:outline-none" />
+          class="w-full px-4 py-2 border rounded focus:outline-none" value="<?= $user["email"] ?? "" ?>" />
       </div>
       <div class="mb-4">
-        <input type="text" name="city" placeholder="City" class="w-full px-4 py-2 border rounded focus:outline-none" />
+        <input type="text" name="city" placeholder="City" class="w-full px-4 py-2 border rounded focus:outline-none"
+          value="<?= $user["city"] ?? "" ?>" />
       </div>
       <div class="mb-4">
-        <input type="text" name="county" placeholder="County"
-          class="w-full px-4 py-2 border rounded focus:outline-none" />
+        <input type="text" name="county" placeholder="County" class="w-full px-4 py-2 border rounded focus:outline-none"
+          value="<?= $user["county"] ?? "" ?>" />
       </div>
       <div class="mb-4">
         <input type="password" name="password" placeholder="Password"
