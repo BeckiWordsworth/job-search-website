@@ -27,7 +27,7 @@ class Session
 
   public static function set($key, $value)
   {
-    $_SESSION[] = $value;
+    $_SESSION[$key] = $value;
   }
   /**
    * Get a session value by the key

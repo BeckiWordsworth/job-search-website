@@ -8,9 +8,6 @@ Session::start();
 
 require "../helpers.php";
 
-inspectAndDie(session_status());
-
-
 // Instantiating the router
 $router = new Router();
 
