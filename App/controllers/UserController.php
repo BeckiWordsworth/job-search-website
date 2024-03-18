@@ -126,8 +126,6 @@ class UserController
       "county" => $county,
     ]);
 
-    inspectAndDie(Session::get("user"));
-
     redirect("/");
 
   }
