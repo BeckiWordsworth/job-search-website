@@ -294,13 +294,17 @@ class ListingController
     $keywords = isset($_GET["keywords"]) ? trim($_GET["keywords"]) : "";
     $location = isset($_GET["location"]) ? trim($_GET["location"]) : "";
 
-    $query = "SELECT * FROM listings WHERE title LIKE :keywords OR description LIKE :keywords OR tages LIKE :keywords OR company Like :keywords";
+    $query = "SELECT * FROM listings WHERE (title LIKE :keywords OR description LIKE :keywords OR tags LIKE :keywords OR company Like :keywords) AND (city LIKE :location OR county LIKE :location)";
 
-    $params = ["keywords" => "%{$keywords}%"];
+    $params = ["keywords" => "%{$keywords}%", "location" => "%{$location}%"];
 
 
     $listings = $this->db->query($query, $params)->fetchAll();
 
-    inspectAndDie($listings);
+    loadView("/listings/index", [
+      "listings" => $listings,
+      "keywords" => $keywords,
+      "location" => $location
+    ]);
   }
 }
