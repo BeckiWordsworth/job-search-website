@@ -6,11 +6,11 @@ Overview of some of the features:
 
 \* Custom built router
 
-\* CRUD operations for job listings.
+\* CRUD operations for job listings
 
-\* Authentication and authorisation as well as protected routes using custom middleware.
+\* Authentication/authorisation as well as protected routes using custom middleware
 
-\* A search feature to filter listings by keywords
+\* A search function to filter listings by keywords
 
 ## Run locally
 
